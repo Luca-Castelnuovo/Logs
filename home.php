@@ -41,7 +41,7 @@ loggedin();
 <body>
     <nav>
         <div class="nav-wrapper blue accent-4">
-          <a href="/" class="brand-logo">Documentation</a>
+          <a href="/" class="brand-logo" style="padding-left: 15px!important;">Logs</a>
           <a href="#" data-target="mobile" class="right sidenav-trigger"><i class="material-icons">menu</i></a>
           <ul id="nav-mobile" class="right hide-on-med-and-down">
             <?php
