@@ -22,3 +22,11 @@ function log_action($service_id, $action, $ip = null, $user_id = null, $client_i
         'additional' => $additional,
     ]);
 }
+
+/*
+
+    require '/var/www/logs.lucacastelnuovo.nl/public_html/logs.php';
+
+    log_action('SERVICE_ID', 'auth.login', $_SERVER["REMOTE_ADDR"], 'USER_ID', 'CLIENT_ID');
+
+*/
