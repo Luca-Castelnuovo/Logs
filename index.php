@@ -33,7 +33,6 @@ if (isset($_GET['code'])) {
 
             $_SESSION['logged_in'] = true;
             $_SESSION['ip'] = $_SERVER['REMOTE_ADDR'];
-            $_SESSION['access_token'] = $access_token;
 
             redirect('/home', 'You are logged in');
         } catch (Exception $e) {

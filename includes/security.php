@@ -93,10 +93,6 @@ function csrf_val($CSRFtoken, $redirect = '/')
 
 function loggedin()
 {
-    if ($_SESSION['access_token']->hasExpired()) {
-        redirect('/?reset', 'Please login');
-    }
-
     if ((!$_SESSION['logged_in']) || ($_SESSION['ip'] != $_SERVER['REMOTE_ADDR']) || (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 1800))) {
         redirect('/?reset', 'Please login');
     } else {
