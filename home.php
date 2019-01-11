@@ -37,8 +37,8 @@ loggedin();
             <li><a href="/home" class="color-secondary">Home</a></li>
             <?php
 
-            $services = sql_select('services', 'id,name', 'true ORDER BY name DESC', true);
-            foreach ($services as $service) {
+            $services = sql_select('services', 'id,name', 'true ORDER BY name DESC', false);
+            while ($service = $services->fetch_assoc()) {
                 echo "<li><a href='/home?service_id={$service['id']}'>{$service['name']}</a></li>";
             }
 
@@ -51,8 +51,8 @@ loggedin();
             <li><a href="/home">Home</a></li>
             <?php
 
-            $services = sql_select('services', 'id,name', 'true ORDER BY name DESC', true);
-            foreach ($services as $service) {
+            $services = sql_select('services', 'id,name', 'true ORDER BY name DESC', false);
+            while ($service = $services->fetch_assoc()) {
                 echo "<li><a href='/home?service_id={$service['id']}'>{$service['name']}</a></li>";
             }
 
