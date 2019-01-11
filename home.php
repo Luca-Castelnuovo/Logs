@@ -94,9 +94,9 @@ loggedin();
                         $service_id = check_data($_GET['service_id'], true, 'Service ID', true, true, '/home');
                         $logs = sql_select('logs', 'date,ip,action,user_id,client_id,additional', "service_id='{$service_id}' ORDER BY time DESC", false);
 
-                        if ($logs->num_rows == 0) {
-                            redirect('/home', 'Logs empty');
-                        }
+                        // if ($logs->num_rows == 0) {
+                        //     redirect('/home', 'Logs empty');
+                        // }
 
                         echo <<<HTML
                         <table class="responsive-table">
