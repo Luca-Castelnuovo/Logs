@@ -48,7 +48,7 @@ loggedin();
 
             $services = sql_select('services', 'id,name', 'true ORDER BY name DESC', false);
             while ($service = $services->fetch_assoc()) {
-                echo "<li><a href='/home?service_id={$service['id']}'>{$service['name']}</a></li>";
+                echo "<li><a href='/home/{$service['id']}'>{$service['name']}</a></li>";
             }
 
             ?>
@@ -63,7 +63,7 @@ loggedin();
 
             $services = sql_select('services', 'id,name', 'true ORDER BY name DESC', false);
             while ($service = $services->fetch_assoc()) {
-                echo "<li><a href='/home?service_id={$service['id']}'>{$service['name']}</a></li>";
+                echo "<li><a href='/home/{$service['id']}'>{$service['name']}</a></li>";
             }
 
             ?>
