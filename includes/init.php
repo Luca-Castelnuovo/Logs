@@ -18,7 +18,6 @@ $provider = new OAuth([
 ]);
 
 
-//Redirect user
 function redirect($to, $alert = null)
 {
     if (!empty($alert)) {
