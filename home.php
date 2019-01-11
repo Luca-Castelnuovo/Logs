@@ -63,11 +63,15 @@ loggedin();
     </nav>
     <main class="section">
         <div class="container">
+            <?php if (!isset($_GET['service_id'])) {
+                ?>
             <div class="row">
                 <div class="col s12">
                     <input type="search" id="searchBar" placeholder="Type something to search...">
                 </div>
             </div>
+            <?php
+            } ?>
             <div class="row">
                 <?php
                     if (!isset($_GET['service_id'])) {
