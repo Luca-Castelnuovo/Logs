@@ -2,7 +2,6 @@
 
 session_start();
 
-
 $GLOBALS['config'] = require $_SERVER['DOCUMENT_ROOT'] . '/includes/config.php';
 
 require $_SERVER['DOCUMENT_ROOT'] . '/includes/oauth.php';
@@ -19,31 +18,6 @@ $provider = new OAuth([
 ]);
 
 
-// API response
-function response($success, $status_code = 200, $message = null, $extra = null)
-{
-    $output = ["success" => $success];
-
-    if (isset($message) && !empty($message)) {
-        if ($success) {
-            $output = array_merge($output, ["message" => $message]);
-        } else {
-            $output = array_merge($output, ["error" => $message]);
-        }
-    }
-
-    if (!empty($extra)) {
-        $output = array_merge($output, $extra);
-    }
-
-    header('Content-Type: application/json');
-    http_response_code($status_code);
-
-    echo json_encode($output);
-    exit;
-}
-
-
 //Redirect user
 function redirect($to, $alert = null)
 {
@@ -58,20 +32,14 @@ function redirect($to, $alert = null)
 
 function alert_set($alert)
 {
-    if (isset($_SESSION)) {
-        $_SESSION['alert'] = $alert;
-    } else {
-        response(false, 'Session not started.');
-    }
+    $_SESSION['alert'] = $alert;
 }
 
 
 function alert_display()
 {
-    if (isset($_SESSION)) {
-        if (isset($_SESSION['alert']) && !empty($_SESSION['alert'])) {
-            echo "<script>M.toast({html: \"{$_SESSION['alert']}\"});</script>";
-            unset($_SESSION['alert']);
-        }
+    if (isset($_SESSION['alert']) && !empty($_SESSION['alert'])) {
+        echo "<script>M.toast({html: \"{$_SESSION['alert']}\"});</script>";
+        unset($_SESSION['alert']);
     }
 }

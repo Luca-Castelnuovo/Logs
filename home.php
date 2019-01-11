@@ -87,7 +87,7 @@ loggedin();
                     if (!isset($_GET['service_id'])) {
                         echo '<h4>Please select a service.</h4>';
                     } else {
-                        $service_id = check_data($_GET['service_id'], true, 'Service ID', true, true, '/home');
+                        $service_id = clean_data($_GET['service_id']);
                         $logs = sql_select('logs', 'date,ip,action,user_id,client_id', "service_id='{$service_id}' ORDER BY date DESC", false);
 
                         if ($logs->num_rows == 0) {
