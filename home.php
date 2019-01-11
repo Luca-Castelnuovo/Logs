@@ -36,10 +36,6 @@ loggedin();
             border-bottom: 1px solid #2962FF !important;
             box-shadow: 0 1px 0 0 #2962FF !important;
         }
-
-        td:empty,th:empty {
-            display: none;
-        }
     </style>
 </head>
 <body>
@@ -81,7 +77,7 @@ loggedin();
                 ?>
             <div class="row">
                 <div class="col s12 input-field">
-                    <input type="search" id="searchBar" placeholder="Type something to search...">
+                    <input type="search" id="searchBar" class="light-table-filter" data-table="order-table" placeholder="Search the logs...">
                 </div>
             </div>
             <?php
@@ -99,7 +95,7 @@ loggedin();
                         }
 
                         echo <<<HTML
-                        <table class="responsive-table">
+                        <table class="responsive-table order-table">
                             <thead>
                                 <tr>
                                     <th>Action</th>
@@ -138,5 +134,6 @@ HTML;
 
     <script src="https://cdn.lucacastelnuovo.nl/general/js/materialize.js"></script>
     <script src="/js/init.js"></script>
+    <script src="/js/filter.js"></script>
 </body>
 </html>
