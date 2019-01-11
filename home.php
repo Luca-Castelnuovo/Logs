@@ -34,7 +34,6 @@ loggedin();
           <a href="/" class="brand-logo">Documentation</a>
           <a href="#" data-target="mobile" class="right sidenav-trigger"><i class="material-icons">menu</i></a>
           <ul id="nav-mobile" class="right hide-on-med-and-down">
-            <li><a href="/home" class="color-secondary">Home</a></li>
             <?php
 
             $services = sql_select('services', 'id,name', 'true ORDER BY name DESC', false);
@@ -43,12 +42,13 @@ loggedin();
             }
 
             ?>
-            <li><a href="/?logout">Logout</a></li>
+            <li><a href="/?logout"><i class="material-icons">exit_to_app</i></a></li>
           </ul>
         </div>
 
         <ul class="sidenav" id="sidenav">
             <li><a href="/home">Home</a></li>
+            <li class="divider"></li>
             <?php
 
             $services = sql_select('services', 'id,name', 'true ORDER BY name DESC', false);
