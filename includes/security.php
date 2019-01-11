@@ -93,7 +93,7 @@ function csrf_val($CSRFtoken, $redirect = '/')
 
 function loggedin()
 {
-    if ($access_token->hasExpired()) {
+    if ($_SESSION['access_token']->hasExpired()) {
         redirect('/?reset', 'Please login');
     }
 
