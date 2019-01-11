@@ -13,7 +13,7 @@ require $_SERVER['DOCUMENT_ROOT'] . '/includes/sql.php';
 $provider = new OAuth([
     'clientID'                => $GLOBALS['config']->oauth->client_id,
     'clientSecret'            => $GLOBALS['config']->oauth->client_secret,
-    'redirectUri'             => 'https://logs.lucacastelnuovo.nl',
+    'redirectUri'             => 'https://logs.lucacastelnuovo.nl/',
     'urlAuthorize'            => 'https://accounts.lucacastelnuovo.nl/auth/authorize',
     'urlAccessToken'          => 'https://accounts.lucacastelnuovo.nl/auth/token',
 ]);
