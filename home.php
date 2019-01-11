@@ -88,7 +88,7 @@ loggedin();
                         echo '<h4>Please select a service.</h4>';
                     } else {
                         $service_id = check_data($_GET['service_id'], true, 'Service ID', true, true, '/home');
-                        $logs = sql_select('logs', 'date,ip,action,user_id,client_id,additional', "service_id='{$service_id}' ORDER BY date DESC", false);
+                        $logs = sql_select('logs', 'date,ip,action,user_id,client_id', "service_id='{$service_id}' ORDER BY date DESC", false);
 
                         if ($logs->num_rows == 0) {
                             redirect('/home', 'Logs empty');
@@ -103,7 +103,6 @@ loggedin();
                                     <th>User_ID</th>
                                     <th>Client_ID</th>
                                     <th>IP</th>
-                                    <th>Additional</th>
                                 </tr>
                             </thead>
 
@@ -118,7 +117,6 @@ HTML;
                                 <td>{$log_item['user_id']}</td>
                                 <td>{$log_item['client_id']}</td>
                                 <td>{$log_item['ip']}</td>
-                                <td>{$log_item['additional']}</td>
                             </tr>
 HTML;
                         }
