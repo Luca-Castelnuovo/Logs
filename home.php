@@ -27,6 +27,20 @@ loggedin();
     <!-- Styles -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
     <link rel="stylesheet" href="https://cdn.lucacastelnuovo.nl/general/css/materialize.css" />
+    <style>
+        .input-field input:focus + label {
+            color: #2962FF !important;
+        }
+
+        .input-field input:focus {
+            border-bottom: 1px solid #2962FF !important;
+            box-shadow: 0 1px 0 0 #2962FF !important;
+        }
+
+        td:empty,th:empty {
+            display: none;
+        }
+    </style>
 </head>
 <body>
     <nav>
@@ -78,24 +92,44 @@ loggedin();
                         echo '<h4>Please select a service.</h4>';
                     } else {
                         $service_id = check_data($_GET['service_id'], true, 'Service ID', true, true, '/home');
-                        $logs = sql_select('logs', 'date,ip,action,user_id,client_id,additional', "service_id='{$service_id}' ORDER BY time DESC", true);
+                        $logs = sql_select('logs', 'date,ip,action,user_id,client_id,additional', "service_id='{$service_id}' ORDER BY time DESC", false);
 
-                        if (empty($logs)) {
-                            redirect('/home', 'Service doesn\'t exist');
+                        if ($logs->num_rows == 0) {
+                            redirect('/home', 'Logs empty');
                         }
 
-                        //build table
-                        //only show column if column not empty
-                        /*
-                            if (!empty($logs['user_id'])) {
-                                // code...
-                            }
-                        */
+                        echo <<<HTML
+                        <table class="responsive-table">
+                            <thead>
+                                <tr>
+                                    <th>Action</th>
+                                    <th>Date</th>
+                                    <th>User_ID</th>
+                                    <th>Client_ID</th>
+                                    <th>IP</th>
+                                    <th>Additional</th>
+                                </tr>
+                            </thead>
 
-                        foreach ($logs as $log) {
-                            echo "<li><a href='/home?service_id={$service['id']}'>{$service['name']}</a></li>";
-                            //display table
+                            <tbody>
+HTML;
+
+                        while ($log_item = $logs->fetch_assoc()) {
+                            echo <<<HTML
+                            <tr>
+                                <td>{$log_item['action']}</td>
+                                <td>{$log_item['date']}</td>
+                                <td>{$log_item['user_id']}</td>
+                                <td>{$log_item['client_id']}</td>
+                                <td>{$log_item['ip']}</td>
+                                <td>{$log_item['additional']}</td>
+                            </tr>
+HTML;
                         }
+                        echo <<<HTML
+                            </tbody>
+                        </table>
+HTML;
                     }
                 ?>
             </div>
