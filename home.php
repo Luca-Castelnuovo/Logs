@@ -52,7 +52,7 @@ loggedin();
             }
 
             ?>
-            <li><a href="/?logout"><i class="material-icons tooltipped" data-position="bottom" data-tooltip="Logout">exit_to_app</i></a></li>
+            <li><a href="/?logout" class="tooltipped" data-position="bottom" data-tooltip="Logout"><i class="material-icons">exit_to_app</i></a></li>
           </ul>
         </div>
 
