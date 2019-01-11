@@ -1,10 +1,5 @@
 <?php
 
-//reset session
-//loggedin
-
-//csrf
-
 #################
 # Validate data #
 #################

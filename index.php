@@ -20,6 +20,12 @@ if (isset($_GET['code'])) {
                 redirect('/?reset', 'Access Token invalid');
             }
 
+            $user = $provider->authenticatedRequest(
+                'GET',
+                'https://api.lucacastelnuovo.nl/user/',
+                $access_token->getToken()
+            );
+
             $allowed_users = json_decode(file_get_contents($GLOBALS['config']->oauth->allowed_users));
             if (!in_array($user['username'], $allowed_users)) {
                 redirect('/?reset', 'Access Denied');
