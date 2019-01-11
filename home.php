@@ -178,5 +178,6 @@ HTML;
             }
         });
     </script>
+    <?= alert_display() ?>
 </body>
 </html>
