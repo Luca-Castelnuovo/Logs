@@ -98,11 +98,11 @@ loggedin();
                         <table class="responsive-table order-table">
                             <thead>
                                 <tr>
-                                    <th>Action</th>
                                     <th>Date</th>
+                                    <th>IP</th>
+                                    <th>Action</th>
                                     <th>User_ID</th>
                                     <th>Client_ID</th>
-                                    <th>IP</th>
                                 </tr>
                             </thead>
 
@@ -112,11 +112,11 @@ HTML;
                         while ($log_item = $logs->fetch_assoc()) {
                             echo <<<HTML
                             <tr>
-                                <td>{$log_item['action']}</td>
                                 <td>{$log_item['date']}</td>
+                                <td>{$log_item['ip']}</td>
+                                <td>{$log_item['action']}</td>
                                 <td>{$log_item['user_id']}</td>
                                 <td>{$log_item['client_id']}</td>
-                                <td>{$log_item['ip']}</td>
                             </tr>
 HTML;
                         }
