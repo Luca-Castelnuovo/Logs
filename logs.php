@@ -1,6 +1,7 @@
 <?php
 
-require '/var/www/logs.lucacastelnuovo.nl/public_html/includes/init.php';
+$GLOBALS['config'] = require '/var/www/logs.lucacastelnuovo.nl/public_html/includes/config.php';
+require '/var/www/logs.lucacastelnuovo.nl/public_html/includes/sql.php';
 
 function log_action($service_id, $action, $ip = null, $user_id = null, $client_id = null, $additional = null)
 {
