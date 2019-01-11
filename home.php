@@ -63,7 +63,7 @@ loggedin();
     </nav>
     <main class="section">
         <div class="container">
-            <?php if (!isset($_GET['service_id'])) {
+            <?php if (isset($_GET['service_id'])) {
                 ?>
             <div class="row">
                 <div class="col s12">
