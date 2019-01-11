@@ -27,11 +27,6 @@ if (isset($_GET['code'])) {
             );
 
             $allowed_users = json_decode(file_get_contents($GLOBALS['config']->oauth->allowed_users));
-
-            echo print_r($user);
-            echo print_r($allowed_users);
-            exit;
-
             if (!in_array($user['username'], $allowed_users)) {
                 redirect('/?reset', 'Access Denied');
             }

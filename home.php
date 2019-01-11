@@ -74,11 +74,19 @@ loggedin();
                         echo '<h4>Please select a service.</h4>';
                     } else {
                         $service_id = check_data($_GET['service_id'], true, 'Service ID', true, true, '/home');
-                        $logs = sql_select('logs', 'id,name', "service_id='{$service_id}' ORDER BY time DESC", true);
+                        $logs = sql_select('logs', 'date,ip,action,user_id,client_id,additional', "service_id='{$service_id}' ORDER BY time DESC", true);
 
                         if (empty($logs)) {
                             redirect('/home', 'Service doesn\'t exist');
                         }
+
+                        //build table
+                        //only show column if column not empty
+                        /*
+                            if (!empty($logs['user_id'])) {
+                                // code...
+                            }
+                        */
 
                         foreach ($logs as $log) {
                             echo "<li><a href='/home?service_id={$service['id']}'>{$service['name']}</a></li>";
