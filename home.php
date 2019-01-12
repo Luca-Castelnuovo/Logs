@@ -85,7 +85,7 @@ if (isset($_GET['service_id']) && isset($_GET['clear_log']) && isset($_GET['CSRF
                     <input type="search" id="searchBar" class="light-table-filter" data-table="order-table" placeholder="Search the logs...">
                 </div>
                 <div class="col s12 m2 input-field">
-                    <a href="?clear_log&service_id=<?= $_GET['service_id'] ?>&CSRFtoken=<?= csrf_gen() ?>" class="waves-effect waves-light btn red accent-4" onclick="return confirm('Are you sure?')">Clear Logs</a>
+                    <a href="/home?clear_log&service_id=<?= $_GET['service_id'] ?>&CSRFtoken=<?= csrf_gen() ?>" class="waves-effect waves-light btn red accent-4" onclick="return confirm('Are you sure?')">Clear Logs</a>
                 </div>
             </div>
             <?php
