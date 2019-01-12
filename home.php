@@ -112,11 +112,12 @@ if (isset($_GET['service_id']) && isset($_GET['clear_log']) && isset($_GET['CSRF
                             <table class="responsive-table order-table">
                                 <thead>
                                     <tr>
-                                        <th>Date</th>
-                                        <th>IP</th>
                                         <th>Action</th>
                                         <th>User_ID</th>
                                         <th>Client_ID</th>
+                                        <th>IP</th>
+                                        <th>Date</th>
+
                                     </tr>
                                 </thead>
 
@@ -126,11 +127,11 @@ HTML;
                             while ($log_item = $logs->fetch_assoc()) {
                                 echo <<<HTML
                                 <tr>
-                                    <td>{$log_item['date']}</td>
-                                    <td>{$log_item['ip']}</td>
                                     <td>{$log_item['action']}</td>
                                     <td>{$log_item['user_id']}</td>
                                     <td>{$log_item['client_id']}</td>
+                                    <td>{$log_item['ip']}</td>
+                                    <td>{$log_item['date']}</td>
                                 </tr>
 HTML;
                             }
@@ -139,10 +140,10 @@ HTML;
                             <table class="responsive-table order-table">
                                 <thead>
                                     <tr>
-                                        <th>Date</th>
-                                        <th>IP</th>
                                         <th>Action</th>
                                         <th>User_ID</th>
+                                        <th>IP</th>
+                                        <th>Date</th>
                                     </tr>
                                 </thead>
 
@@ -152,10 +153,10 @@ HTML;
                             while ($log_item = $logs->fetch_assoc()) {
                                 echo <<<HTML
                                 <tr>
-                                    <td>{$log_item['date']}</td>
-                                    <td>{$log_item['ip']}</td>
                                     <td>{$log_item['action']}</td>
                                     <td>{$log_item['user_id']}</td>
+                                    <td>{$log_item['ip']}</td>
+                                    <td>{$log_item['date']}</td>
                                 </tr>
 HTML;
                             }
