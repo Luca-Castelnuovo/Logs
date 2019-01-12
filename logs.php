@@ -1,10 +1,10 @@
 <?php
 
-$config = require '/var/www/logs.lucacastelnuovo.nl/public_html/includes/config.php';
+$GLOBALS['log_config'] = require '/var/www/logs.lucacastelnuovo.nl/public_html/includes/config.php';
 
 function log_sql_connect()
 {
-    $conn = new mysqli($config->database->host, $config->database->user, $config->database->password, $config->database->database);
+    $conn = new mysqli($GLOBALS['log_config']->database->host, $GLOBALS['log_config']->database->user, $GLOBALS['log_config']->database->password, $GLOBALS['log_config']->database->database);
 
     if ($conn->connect_error) {
         exit('Server error');
