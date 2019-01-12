@@ -63,31 +63,3 @@ function sql_insert($table, $insert) // sql_insert('users', ['first_name' => 'pi
     // Execute query
     sql_query($query, false);
 }
-
-// Update
-function sql_update($table, $data, $where) // sql_update('users', '['first_name' => 'piet'], 'user_id=1')
-{
-    // Build column
-    $sets = array();
-    foreach ($data as $column => $value) {
-        $sets[] = "`" . $column . "` = '" . $value . "'";
-    }
-
-    // Build query
-    $where = ' WHERE ' . $where;
-    $query = 'UPDATE ' . $table . ' SET ' . implode(', ', $sets) . $where;
-
-    // Execute query
-    sql_query($query, false);
-}
-
-// Delete
-function sql_delete($table, $where) // sql_delete('users', 'user_id=1')
-{
-    // Build query
-    $where = ' WHERE ' . $where;
-    $query = "DELETE FROM " . $table . $where;
-
-    // Execute query
-    sql_query($query, false);
-}
