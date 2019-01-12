@@ -57,6 +57,14 @@ loggedin();
         </div>
 
         <ul class="sidenav" id="sidenav">
+            <?php
+
+            $services = sql_select('services', 'id,name', 'true ORDER BY name DESC', false);
+            while ($service = $services->fetch_assoc()) {
+                echo "<li><a href='/home/{$service['id']}'>{$service['name']}</a></li>";
+            }
+
+            ?>
             <li class="divider"></li>
             <li><a href="/?logout">Logout</a></li>
         </ul>
@@ -121,47 +129,7 @@ HTML;
     </main>
 
     <script src="https://cdn.lucacastelnuovo.nl/general/js/materialize.js"></script>
-    <script>
-        document.addEventListener("DOMContentLoaded",function(){var e=document.querySelectorAll(".sidenav");M.Sidenav.init(e,{edge:"right",draggable:!0})});
-
-        document.addEventListener('DOMContentLoaded', function() {
-            var elems = document.querySelectorAll('.tooltipped');
-            var instances = M.Tooltip.init(elems, {});
-        });
-
-        var LightTableFilter = (function(Arr) {
-            var _input;
-
-            function _onInputEvent(e) {
-                _input = e.target;
-                var tables = document.getElementsByClassName(_input.getAttribute('data-table'));
-                Arr.forEach.call(tables, function(table) {
-                    Arr.forEach.call(table.tBodies, function(tbody) {
-                        Arr.forEach.call(tbody.rows, _filter);
-                    });
-                });
-            }
-
-            function _filter(row) {
-                var text = row.textContent.toLowerCase(),
-                    val = _input.value.toLowerCase();
-                row.style.display = text.indexOf(val) === -1 ? 'none' : 'table-row';
-            }
-            return {
-                init: function() {
-                    var inputs = document.getElementsByClassName('light-table-filter');
-                    Arr.forEach.call(inputs, function(input) {
-                        input.oninput = _onInputEvent;
-                    });
-                }
-            };
-        })(Array.prototype);
-        document.addEventListener('readystatechange', function() {
-            if (document.readyState === 'complete') {
-                LightTableFilter.init();
-            }
-        });
-    </script>
+    <script src="/app.js"></script>
     <?= alert_display() ?>
 </body>
 </html>
