@@ -46,7 +46,7 @@ loggedin();
           <ul class="right hide-on-med-and-down">
             <?php
 
-            $services = sql_select('services', 'id,name', 'true ORDER BY name DESC', false);
+            $services = sql_select('services', 'id,name', 'true ORDER BY name ASC', false);
             while ($service = $services->fetch_assoc()) {
                 echo "<li><a href='/home/{$service['id']}'>{$service['name']}</a></li>";
             }
@@ -59,7 +59,7 @@ loggedin();
         <ul class="sidenav" id="mobile">
             <?php
 
-            $services = sql_select('services', 'id,name', 'true ORDER BY name DESC', false);
+            $services = sql_select('services', 'id,name', 'true ORDER BY name ASC', false);
             while ($service = $services->fetch_assoc()) {
                 echo "<li><a href='/home/{$service['id']}'>{$service['name']}</a></li>";
             }
