@@ -57,14 +57,6 @@ loggedin();
         </div>
 
         <ul class="sidenav" id="sidenav">
-            <?php
-
-            $services = sql_select('services', 'id,name', 'true ORDER BY name DESC', false);
-            while ($service = $services->fetch_assoc()) {
-                echo "<li><a href='/home/{$service['id']}'>{$service['name']}</a></li>";
-            }
-
-            ?>
             <li class="divider"></li>
             <li><a href="/?logout">Logout</a></li>
         </ul>
