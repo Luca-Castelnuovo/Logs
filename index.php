@@ -42,7 +42,7 @@ if (isset($_GET['code'])) {
 }
 
 if (isset($_GET['logout'])) {
-    alert_set('You are logged out.');
+    alert_set('You are logged out');
     reset_session();
 }
 
