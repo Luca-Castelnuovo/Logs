@@ -57,8 +57,6 @@ loggedin();
         </div>
 
         <ul class="sidenav" id="sidenav">
-            <li><a href="/home">Home</a></li>
-            <li class="divider"></li>
             <?php
 
             $services = sql_select('services', 'id,name', 'true ORDER BY name DESC', false);
@@ -132,13 +130,7 @@ HTML;
 
     <script src="https://cdn.lucacastelnuovo.nl/general/js/materialize.js"></script>
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            var elems = document.querySelectorAll('.sidenav');
-            var instances = M.Sidenav.init(elems, {
-                edge: 'right',
-                draggable: true
-            });
-        });
+        document.addEventListener("DOMContentLoaded",function(){var e=document.querySelectorAll(".sidenav");M.Sidenav.init(e,{edge:"right",draggable:!0})});
 
         document.addEventListener('DOMContentLoaded', function() {
             var elems = document.querySelectorAll('.tooltipped');
