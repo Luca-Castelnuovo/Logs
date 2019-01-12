@@ -43,7 +43,7 @@ loggedin();
         <div class="nav-wrapper blue accent-4">
           <a href="/" class="brand-logo" style="padding-left: 15px!important;">Logs</a>
           <a href="#" data-target="mobile" class="right sidenav-trigger"><i class="material-icons">menu</i></a>
-          <ul id="nav-mobile" class="right hide-on-med-and-down">
+          <ul class="right hide-on-med-and-down">
             <?php
 
             $services = sql_select('services', 'id,name', 'true ORDER BY name DESC', false);
@@ -56,7 +56,7 @@ loggedin();
           </ul>
         </div>
 
-        <ul class="sidenav" id="sidenav">
+        <ul class="sidenav" id="mobile">
             <?php
 
             $services = sql_select('services', 'id,name', 'true ORDER BY name DESC', false);
