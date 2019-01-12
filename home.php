@@ -7,6 +7,7 @@ if (isset($_GET['service_id']) && isset($_GET['clear_log']) && isset($_GET['CSRF
     csrf_val($_GET['CSRFtoken'], '/home');
     $service_id = clean_data($_GET['service_id']);
     sql_delete('logs', "service_id='{$service_id}'");
+    log_action('5', 'logs.clear', $_SERVER["REMOTE_ADDR"], $_SESSION['id'], $GLOBALS['config']->oauth->client_id);
 }
 
 ?>
