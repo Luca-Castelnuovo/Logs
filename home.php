@@ -55,7 +55,11 @@ if (isset($_GET['service_id']) && isset($_GET['clear_log']) && isset($_GET['CSRF
 
             $services = sql_select('services', 'id,name', 'true ORDER BY name ASC', false);
             while ($service = $services->fetch_assoc()) {
-                echo "<li><a href='/home/{$service['id']}'>{$service['name']}</a></li>";
+                if ($service['id'] == 1) {
+                    echo "<li><a href='/home/{$service['id']}&show_client'>{$service['name']}</a></li>";
+                } else {
+                    echo "<li><a href='/home/{$service['id']}'>{$service['name']}</a></li>";
+                }
             }
 
             ?>
@@ -102,32 +106,60 @@ if (isset($_GET['service_id']) && isset($_GET['clear_log']) && isset($_GET['CSRF
                             redirect('/home', 'Logs empty');
                         }
 
-                        echo <<<HTML
-                        <table class="responsive-table order-table">
-                            <thead>
-                                <tr>
-                                    <th>Date</th>
-                                    <th>IP</th>
-                                    <th>Action</th>
-                                    <th>User_ID</th>
-                                    <th>Client_ID</th>
-                                </tr>
-                            </thead>
-
-                            <tbody>
-HTML;
-
-                        while ($log_item = $logs->fetch_assoc()) {
+                        if (isset($_GET['show_client'])) {
                             echo <<<HTML
-                            <tr>
-                                <td>{$log_item['date']}</td>
-                                <td>{$log_item['ip']}</td>
-                                <td>{$log_item['action']}</td>
-                                <td>{$log_item['user_id']}</td>
-                                <td>{$log_item['client_id']}</td>
-                            </tr>
+                            <table class="responsive-table order-table">
+                                <thead>
+                                    <tr>
+                                        <th>Date</th>
+                                        <th>IP</th>
+                                        <th>Action</th>
+                                        <th>User_ID</th>
+                                        <th>Client_ID</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody>
 HTML;
+
+                            while ($log_item = $logs->fetch_assoc()) {
+                                echo <<<HTML
+                                <tr>
+                                    <td>{$log_item['date']}</td>
+                                    <td>{$log_item['ip']}</td>
+                                    <td>{$log_item['action']}</td>
+                                    <td>{$log_item['user_id']}</td>
+                                    <td>{$log_item['client_id']}</td>
+                                </tr>
+HTML;
+                            }
+                        } else {
+                            echo <<<HTML
+                            <table class="responsive-table order-table">
+                                <thead>
+                                    <tr>
+                                        <th>Date</th>
+                                        <th>IP</th>
+                                        <th>Action</th>
+                                        <th>User_ID</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+HTML;
+
+                            while ($log_item = $logs->fetch_assoc()) {
+                                echo <<<HTML
+                                <tr>
+                                    <td>{$log_item['date']}</td>
+                                    <td>{$log_item['ip']}</td>
+                                    <td>{$log_item['action']}</td>
+                                    <td>{$log_item['user_id']}</td>
+                                </tr>
+HTML;
+                            }
                         }
+
                         echo <<<HTML
                             </tbody>
                         </table>
