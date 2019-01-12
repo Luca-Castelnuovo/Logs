@@ -90,7 +90,7 @@ function log_action($service_id, $action, $ip = null, $user_id = null, $client_i
     $date = date("Y-m-d H:i:s");
 
     log_sql_insert('logs', [
-        'services_id' => $service_id,
+        'service_id' => $service_id,
         'action' => $action,
         'date' => $date,
         'ip' => $ip,
