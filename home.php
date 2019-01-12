@@ -20,7 +20,7 @@ if (isset($_GET['service_id']) && isset($_GET['clear_log']) && isset($_GET['CSRF
     <!-- Config -->
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <link rel="manifest" href="/manifest.json"></link>
+    <link rel="manifest" href="/site.webmanifest"></link>
     <title>Home || Logs</title>
 
     <!-- SEO -->
