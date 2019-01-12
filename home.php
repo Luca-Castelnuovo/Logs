@@ -8,6 +8,7 @@ if (isset($_GET['service_id']) && isset($_GET['clear_log']) && isset($_GET['CSRF
     $service_id = clean_data($_GET['service_id']);
     sql_delete('logs', "service_id='{$service_id}'");
     log_action($service_id, 'logs.clear', $_SERVER["REMOTE_ADDR"], $_SESSION['id']);
+    redirect('/home/' . $service_id, 'Logs cleard');
 }
 
 ?>
