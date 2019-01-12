@@ -8,6 +8,9 @@ require $_SERVER['DOCUMENT_ROOT'] . '/includes/oauth.php';
 require $_SERVER['DOCUMENT_ROOT'] . '/includes/security.php';
 require $_SERVER['DOCUMENT_ROOT'] . '/includes/sql.php';
 
+// External
+require '/var/www/logs.lucacastelnuovo.nl/public_html/logs.php';
+
 
 $provider = new OAuth([
     'clientID'                => $GLOBALS['config']->oauth->client_id,
