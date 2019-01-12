@@ -63,3 +63,14 @@ function sql_insert($table, $insert) // sql_insert('users', ['first_name' => 'pi
     // Execute query
     sql_query($query, false);
 }
+
+// Delete
+function sql_delete($table, $where) // sql_delete('users', 'user_id=1')
+{
+    // Build query
+    $where = ' WHERE ' . $where;
+    $query = "DELETE FROM " . $table . $where;
+
+    // Execute query
+    sql_query($query, false);
+}

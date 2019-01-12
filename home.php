@@ -3,6 +3,12 @@
 require $_SERVER['DOCUMENT_ROOT'] . '/includes/init.php';
 loggedin();
 
+if (isset($_GET['service_id']) && isset($_GET['clear_log']) && isset($_GET['CSRFtoken'])) {
+    csrf_val($_GET['CSRFtoken'], '/home');
+    $service_id = clean_data($_GET['service_id']);
+    sql_delete('logs', "service_id='{$service_id}'");
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -74,8 +80,11 @@ loggedin();
             <?php if (isset($_GET['service_id'])) {
                 ?>
             <div class="row">
-                <div class="col s12 input-field">
+                <div class="col s12 m10 input-field">
                     <input type="search" id="searchBar" class="light-table-filter" data-table="order-table" placeholder="Search the logs...">
+                </div>
+                <div class="col s12 m2 input-field">
+                    <a href="?clear_log&service_id=<?= $_GET['service_id'] ?>&CSRFtoken=<?= csrf_gen() ?>" class="waves-effect waves-light btn red accent-4" onclick="return confirm('Are you sure?')">Clear Logs</a>
                 </div>
             </div>
             <?php
