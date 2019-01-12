@@ -109,7 +109,7 @@ if (isset($_GET['service_id']) && isset($_GET['clear_log']) && isset($_GET['CSRF
 
                         if (isset($_GET['show_client'])) {
                             echo <<<HTML
-                            <table class="responsive-table order-table">
+                            <table class="responsive-table order-table centered">
                                 <thead>
                                     <tr>
                                         <th>Action</th>
@@ -137,7 +137,7 @@ HTML;
                             }
                         } else {
                             echo <<<HTML
-                            <table class="responsive-table order-table">
+                            <table class="responsive-table order-table centered">
                                 <thead>
                                     <tr>
                                         <th>Action</th>
