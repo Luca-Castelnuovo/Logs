@@ -68,9 +68,9 @@ function log_sql_insert($table, $insert) // sql_insert('users', ['first_name' =>
 
 function log_clean_data($data)
 {
-    $conn = sql_connect();
+    $conn = log_sql_connect();
     $data = $conn->escape_string($data);
-    sql_disconnect($conn);
+    log_sql_disconnect($conn);
 
     $data = trim($data);
     $data = htmlspecialchars($data);
