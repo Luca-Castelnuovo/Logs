@@ -45,6 +45,9 @@ if (isset($_GET['service_id']) && isset($_GET['clear_log']) && isset($_GET['CSRF
             box-shadow: 0 1px 0 0 #2962FF !important;
         }
     </style>
+
+    <!-- Analytics -->
+    <script src="https://cdn.lucacastelnuovo.nl/tracking/10"></script>
 </head>
 <body>
     <nav>
