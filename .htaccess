@@ -1,0 +1,12 @@
+RewriteEngine On
+
+# Clean URL
+RewriteRule ^home/([^/]+)/$ home.php?service_id=$1
+RewriteRule ^home/([^/]+)$ home.php?service_id=$1
+
+# Remove .PHP from url
+RewriteCond %{DOCUMENT_ROOT}/$1\.php -f
+RewriteRule ^(.+?)/?$ /$1.php [L]
+RewriteCond %{REQUEST_FILENAME} !-f [OR]
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^ - [L]
