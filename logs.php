@@ -1,6 +1,6 @@
 <?php
 
-$GLOBALS['log_config'] = require '/var/www/logs.lucacastelnuovo.nl/public_html/includes/config.php';
+$GLOBALS['log_config'] = require '/var/www/logs.lucacastelnuovo.nl/includes/config.php';
 
 function log_sql_connect()
 {
@@ -102,7 +102,7 @@ function log_action($service_id, $action, $ip = null, $user_id = null, $client_i
 
 /*
 
-    require '/var/www/logs.lucacastelnuovo.nl/public_html/logs.php';
+    require '/var/www/logs.lucacastelnuovo.nl/logs.php';
 
     log_action('SERVICE_ID', 'auth.login', $_SERVER["REMOTE_ADDR"], 'USER_ID', 'CLIENT_ID');
 
